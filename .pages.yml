@@ -5,17 +5,17 @@
 media:
   - name: photos
     label: Photos
-    input: demo-site/media/photos
+    input: media/photos
     output: /media/photos
     extensions: [jpg, jpeg, png, webp]
   - name: music
     label: Music previews
-    input: demo-site/media/music
+    input: media/music
     output: /media/music
     extensions: [mp3, m4a]
   - name: files
     label: Documents
-    input: demo-site/media/files
+    input: media/files
     output: /media/files
     extensions: [pdf]
 
@@ -23,7 +23,7 @@ content:
   - name: dates
     label: Upcoming dates
     type: file
-    path: demo-site/content/dates.json
+    path: content/dates.json
     format: json
     list: true
     fields:
@@ -69,7 +69,7 @@ content:
   - name: videos
     label: Videos
     type: file
-    path: demo-site/content/videos.json
+    path: content/videos.json
     format: json
     list: true
     fields:
@@ -86,7 +86,7 @@ content:
   - name: interviews
     label: Podcasts and interviews
     type: file
-    path: demo-site/content/interviews.json
+    path: content/interviews.json
     format: json
     list: true
     fields:
@@ -120,7 +120,7 @@ content:
   - name: profile
     label: Photos, headline and story
     type: file
-    path: demo-site/content/profile.json
+    path: content/profile.json
     format: json
     fields:
       - name: name
@@ -176,7 +176,7 @@ content:
   - name: album
     label: Album and songs
     type: file
-    path: demo-site/content/album.json
+    path: content/album.json
     format: json
     fields:
       - name: title
@@ -242,7 +242,7 @@ content:
   - name: merch
     label: Merch
     type: file
-    path: demo-site/content/merch.json
+    path: content/merch.json
     format: json
     list: true
     fields:
@@ -270,7 +270,7 @@ content:
   - name: church-resources
     label: Chord charts for churches
     type: file
-    path: demo-site/content/church-resources.json
+    path: content/church-resources.json
     format: json
     list: true
     fields:
@@ -301,7 +301,7 @@ content:
   - name: links
     label: Contact and links
     type: file
-    path: demo-site/content/links.json
+    path: content/links.json
     format: json
     fields:
       - name: booking_email
