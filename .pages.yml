@@ -1,0 +1,341 @@
+# Pages CMS editor for this site (https://pagescms.org)
+# Each entry below becomes one item in the musician's menu.
+# The layout file (content/layout.json) is deliberately NOT listed: only Two Fish changes the design.
+
+media:
+  - name: photos
+    label: Photos
+    input: demo-site/media/photos
+    output: /media/photos
+    extensions: [jpg, jpeg, png, webp]
+  - name: music
+    label: Music previews
+    input: demo-site/media/music
+    output: /media/music
+    extensions: [mp3, m4a]
+  - name: files
+    label: Documents
+    input: demo-site/media/files
+    output: /media/files
+    extensions: [pdf]
+
+content:
+  - name: dates
+    label: Upcoming dates
+    type: file
+    path: demo-site/content/dates.json
+    format: json
+    list: true
+    fields:
+      - name: when
+        label: Date and start time
+        type: date
+        required: true
+        options:
+          time: true
+          format: yyyy-MM-dd'T'HH:mm
+        description: Past dates disappear from your site on their own. No need to delete them.
+      - name: venue
+        label: Venue or church name
+        type: string
+        required: true
+      - name: city
+        label: City
+        type: string
+      - name: state
+        label: State
+        type: string
+        description: Two letters, like FL
+      - name: type
+        label: Kind of event
+        type: select
+        options:
+          values:
+            - name: venue
+              label: Concert or venue
+            - name: church
+              label: Church service or event
+      - name: details
+        label: Short note (optional)
+        type: string
+        description: For example, Doors 6:30 PM or Christmas by Candlelight
+      - name: link
+        label: Tickets or event page link
+        type: string
+      - name: price
+        label: Ticket price in dollars (0 if free)
+        type: number
+
+  - name: videos
+    label: Videos
+    type: file
+    path: demo-site/content/videos.json
+    format: json
+    list: true
+    fields:
+      - name: title
+        label: Video title
+        type: string
+        required: true
+      - name: youtube_link
+        label: YouTube link
+        type: string
+        required: true
+        description: Copy the address from YouTube and paste it here. The first video is the featured one.
+
+  - name: interviews
+    label: Podcasts and interviews
+    type: file
+    path: demo-site/content/interviews.json
+    format: json
+    list: true
+    fields:
+      - name: title
+        label: Episode or interview title
+        type: string
+        required: true
+      - name: show
+        label: Show or publication
+        type: string
+      - name: date
+        label: Date it came out
+        type: date
+        options:
+          format: yyyy-MM-dd
+        description: The newest one is featured at the top.
+      - name: minutes
+        label: Length in minutes (optional)
+        type: number
+      - name: summary
+        label: One or two sentences about it (optional)
+        type: text
+      - name: link
+        label: Link to the episode
+        type: string
+      - name: youtube_link
+        label: YouTube link (optional)
+        type: string
+        description: If the interview is on YouTube, visitors can play it right on your site.
+
+  - name: profile
+    label: Photos, headline and story
+    type: file
+    path: demo-site/content/profile.json
+    format: json
+    fields:
+      - name: name
+        label: Artist or band name
+        type: string
+        required: true
+      - name: headline
+        label: Headline (what people search for)
+        type: string
+        required: true
+        options:
+          maxlength: 70
+        description: This becomes your page title in Google. Keep it short, for example Christian singer-songwriter from Jacksonville, FL
+      - name: intro
+        label: One-sentence welcome
+        type: text
+      - name: hometown
+        label: Home town
+        type: string
+      - name: main_photo
+        label: Main photo (wide)
+        type: image
+        options:
+          media: photos
+      - name: portrait_photo
+        label: Portrait photo (tall)
+        type: image
+        options:
+          media: photos
+      - name: about_photo
+        label: Photo for your story
+        type: image
+        options:
+          media: photos
+      - name: story
+        label: Your story
+        type: text
+        description: Leave a blank line between paragraphs.
+      - name: quote
+        label: A quote about your music (optional)
+        type: string
+      - name: quote_by
+        label: Who said it
+        type: string
+      - name: verse
+        label: Scripture verse (optional)
+        type: text
+      - name: verse_ref
+        label: Verse reference
+        type: string
+        description: For example, Psalm 96:1 · KJV
+
+  - name: album
+    label: Album and songs
+    type: file
+    path: demo-site/content/album.json
+    format: json
+    fields:
+      - name: title
+        label: Album title
+        type: string
+      - name: released
+        label: Release date
+        type: date
+        options:
+          format: yyyy-MM-dd
+      - name: note
+        label: A sentence about the album
+        type: text
+      - name: cover
+        label: Album cover (square)
+        type: image
+        options:
+          media: photos
+      - name: bandcamp_link
+        label: Bandcamp album link
+        type: string
+        description: Where people buy and download the album.
+      - name: bandcamp_album_id
+        label: Bandcamp album number (optional)
+        type: string
+        description: From Bandcamp's Share / Embed code. Lets visitors open the Bandcamp player on your site. Two Fish can fill this in for you.
+      - name: songs
+        label: Songs
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: title
+            label: Song title
+            type: string
+            required: true
+          - name: length
+            label: Length
+            type: string
+            description: For example, 3:42
+          - name: scripture
+            label: Scripture behind the song (optional)
+            type: string
+          - name: story
+            label: Story behind the song (optional)
+            type: text
+          - name: audio
+            label: Song preview file (MP3)
+            type: file
+            options:
+              media: music
+            description: Plays in the player on your site. Keep each file under 25 MB.
+          - name: free_download
+            label: Offer this song as a free download
+            type: boolean
+          - name: buy_link
+            label: Bandcamp link to buy this song
+            type: string
+            description: Used when the song is not a free download.
+
+  - name: merch
+    label: Merch
+    type: file
+    path: demo-site/content/merch.json
+    format: json
+    list: true
+    fields:
+      - name: name
+        label: Product name
+        type: string
+        required: true
+      - name: price
+        label: Price
+        type: string
+        description: For example, $25
+      - name: description
+        label: Short description
+        type: string
+      - name: link
+        label: Link to buy (Fourthwall, Bandcamp or your store)
+        type: string
+        required: true
+      - name: photo
+        label: Product photo (square)
+        type: image
+        options:
+          media: photos
+
+  - name: church-resources
+    label: Chord charts for churches
+    type: file
+    path: demo-site/content/church-resources.json
+    format: json
+    list: true
+    fields:
+      - name: song
+        label: Song
+        type: string
+        required: true
+      - name: key
+        label: Key
+        type: string
+      - name: tempo
+        label: Tempo (BPM)
+        type: number
+      - name: ccli
+        label: CCLI song number
+        type: string
+      - name: chord_chart
+        label: Chord chart (PDF)
+        type: file
+        options:
+          media: files
+      - name: lead_sheet
+        label: Lead sheet (PDF)
+        type: file
+        options:
+          media: files
+
+  - name: links
+    label: Contact and links
+    type: file
+    path: demo-site/content/links.json
+    format: json
+    fields:
+      - name: booking_email
+        label: Booking email
+        type: string
+      - name: email
+        label: General email
+        type: string
+      - name: press_kit
+        label: Press kit (PDF)
+        type: file
+        options:
+          media: files
+      - name: spotify
+        label: Spotify artist link
+        type: string
+      - name: apple_music
+        label: Apple Music link
+        type: string
+      - name: youtube_music
+        label: YouTube Music link
+        type: string
+      - name: bandcamp
+        label: Bandcamp page
+        type: string
+      - name: instagram
+        label: Instagram
+        type: string
+      - name: facebook
+        label: Facebook
+        type: string
+      - name: youtube
+        label: YouTube channel
+        type: string
+      - name: tiktok
+        label: TikTok
+        type: string
