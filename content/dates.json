@@ -1,0 +1,42 @@
+[
+  {
+    "when": "2026-11-14T19:00",
+    "venue": "The Listening Room",
+    "city": "Jacksonville",
+    "state": "FL",
+    "type": "venue",
+    "details": "Doors 6:30 PM",
+    "link": "https://www.example.com/tickets",
+    "price": 20
+  },
+  {
+    "when": "2026-11-22T10:30",
+    "venue": "Grace Community Church",
+    "city": "Savannah",
+    "state": "GA",
+    "type": "church",
+    "details": "Sunday service",
+    "link": "https://www.example.com/grace",
+    "price": 0
+  },
+  {
+    "when": "2026-12-12T19:00",
+    "venue": "Hope Chapel",
+    "city": "Nashville",
+    "state": "TN",
+    "type": "church",
+    "details": "Christmas by Candlelight",
+    "link": "https://www.example.com/hope",
+    "price": 15
+  },
+  {
+    "when": "2026-09-01T19:00",
+    "venue": "Old Show (already happened)",
+    "city": "Orlando",
+    "state": "FL",
+    "type": "venue",
+    "details": "This one is in the past, so it hides itself",
+    "link": "https://www.example.com",
+    "price": 0
+  }
+]

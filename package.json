@@ -1,0 +1,7 @@
+{
+  "name": "musician-site",
+  "private": true,
+  "description": "A Two Fish Hosting musician website. Content lives in /content, the design lives in /kit.",
+  "scripts": { "build": "node build.js" },
+  "engines": { "node": ">=18" }
+}

@@ -1,0 +1,47 @@
+{
+  "_note": "Two Fish only. The musician's editor does not show this file.",
+  "style": "sanctuary",
+  "domain": "www.gracemillermusic.com",
+  "timezone": "America/New_York",
+  "genre": [
+    "Contemporary Christian",
+    "Worship",
+    "Singer-Songwriter"
+  ],
+  "newsletter_form_action": "",
+  "prayer_form_action": "",
+  "sections": [
+    {
+      "k": "hero",
+      "v": "verse"
+    },
+    {
+      "k": "music",
+      "v": "album"
+    },
+    {
+      "k": "videos",
+      "v": "feature"
+    },
+    {
+      "k": "dates",
+      "v": "tickets"
+    },
+    {
+      "k": "podcast",
+      "v": "feature"
+    },
+    {
+      "k": "story",
+      "v": "portrait"
+    },
+    {
+      "k": "merch",
+      "v": "cards"
+    },
+    {
+      "k": "contact",
+      "v": "letter"
+    }
+  ]
+}

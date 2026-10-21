@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Quiet Harbor Vinyl",
+    "price": "$28",
+    "description": "180g pressing with lyric insert.",
+    "link": "https://REPLACE.fourthwall.com/products/vinyl",
+    "photo": "/media/photos/merch-vinyl.jpg"
+  },
+  {
+    "name": "Tour Tee",
+    "price": "$25",
+    "description": "Soft cotton, unisex sizes.",
+    "link": "https://REPLACE.fourthwall.com/products/tee",
+    "photo": "/media/photos/merch-tee.jpg"
+  }
+]
