@@ -11,7 +11,19 @@ const path = require("path");
 const kit = require("./kit/kit.js");
 
 const read = (f, fallback) => { try { return JSON.parse(fs.readFileSync(path.join(__dirname, "content", f), "utf8")); } catch (e) { if (fallback !== undefined) return fallback; throw new Error("Could not read content/" + f + ": " + e.message); } };
-const P = read("profile.json"), L = read("layout.json");
+const P = read("profile.json");
+/* content/layout.json names a template, for example {"template": "frontporch", "domain": "...", "timezone": "..."}.
+   The template's design comes from templates/<name>.json; anything else in layout.json overrides it. */
+const L = (() => {
+  const own = read("layout.json");
+  if (!own.template) return own; // an older, full layout file still works
+  const name = String(own.template).trim().toLowerCase();
+  const file = path.join(__dirname, "templates", name + ".json");
+  if (!fs.existsSync(file)) throw new Error('content/layout.json asks for the template "' + own.template + '", but there is no templates/' + name + '.json. Check the spelling against templates/README.md.');
+  const base = JSON.parse(fs.readFileSync(file, "utf8"));
+  delete base._note;
+  return Object.assign({}, base, own);
+})();
 const dates = read("dates.json", []), videos = read("videos.json", []), interviews = read("interviews.json", []);
 const album = read("album.json", null), merch = read("merch.json", []), resources = read("church-resources.json", []), links = read("links.json", {});
 /* files added with kit 1.4 (the 21 templates); each one is optional */

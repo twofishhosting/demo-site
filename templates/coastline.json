@@ -1,5 +1,5 @@
 {
-  "_note": "Two Fish only. Template: Coastline · Christian and secular (coastline). Copy this whole file into content/layout.json, then change domain and timezone.",
+  "_note": "Two Fish only. The Coastline template (Christian and secular). Don't edit this file: a site uses it when content/layout.json says \"template\": \"coastline\".",
   "style": "coastline",
   "domain": "www.REPLACE.com",
   "timezone": "America/New_York",

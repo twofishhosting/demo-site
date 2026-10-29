@@ -1,5 +1,5 @@
 {
-  "_note": "Two Fish only. Template: Signal · Secular (signal). Copy this whole file into content/layout.json, then change domain and timezone.",
+  "_note": "Two Fish only. The Signal template (Secular). Don't edit this file: a site uses it when content/layout.json says \"template\": \"signal\".",
   "style": "signal",
   "domain": "www.REPLACE.com",
   "timezone": "America/New_York",

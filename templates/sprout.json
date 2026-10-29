@@ -1,5 +1,5 @@
 {
-  "_note": "Two Fish only. Template: Sprout · Christian (sprout). Copy this whole file into content/layout.json, then change domain and timezone.",
+  "_note": "Two Fish only. The Sprout template (Christian). Don't edit this file: a site uses it when content/layout.json says \"template\": \"sprout\".",
   "style": "sprout",
   "domain": "www.REPLACE.com",
   "timezone": "America/New_York",

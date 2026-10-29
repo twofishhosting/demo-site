@@ -1,47 +1,6 @@
 {
-  "_note": "Two Fish only. The musician's editor does not show this file.",
-  "style": "sanctuary",
+  "_note": "Two Fish only. Set template to the word in brackets from the musician's Template answer (for example frontporch), then set domain and timezone. templates/README.md lists all 21.",
+  "template": "demo",
   "domain": "www.gracemillermusic.com",
-  "timezone": "America/New_York",
-  "genre": [
-    "Contemporary Christian",
-    "Worship",
-    "Singer-Songwriter"
-  ],
-  "newsletter_form_action": "",
-  "prayer_form_action": "",
-  "sections": [
-    {
-      "k": "hero",
-      "v": "verse"
-    },
-    {
-      "k": "music",
-      "v": "album"
-    },
-    {
-      "k": "videos",
-      "v": "feature"
-    },
-    {
-      "k": "dates",
-      "v": "tickets"
-    },
-    {
-      "k": "podcast",
-      "v": "feature"
-    },
-    {
-      "k": "story",
-      "v": "portrait"
-    },
-    {
-      "k": "merch",
-      "v": "cards"
-    },
-    {
-      "k": "contact",
-      "v": "letter"
-    }
-  ]
+  "timezone": "America/New_York"
 }

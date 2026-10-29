@@ -1,5 +1,5 @@
 {
-  "_note": "Two Fish only. Template: Crossroads · Christian and secular (crossroads). Copy this whole file into content/layout.json, then change domain and timezone.",
+  "_note": "Two Fish only. The Crossroads template (Christian and secular). Don't edit this file: a site uses it when content/layout.json says \"template\": \"crossroads\".",
   "style": "crossroads",
   "domain": "www.REPLACE.com",
   "timezone": "America/New_York",

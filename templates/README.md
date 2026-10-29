@@ -1,8 +1,10 @@
-# Template layouts
+# Templates
 
 One file per template on the template page (twofishhosting.com/design.html). The musician's content form says which one they picked, for example "Jubilee · Christian (jubilee)": the word in brackets is the file name.
 
-To use one: open it, click the copy icon, then open content/layout.json, click the pencil, select everything, paste, change `domain` and `timezone`, and Commit changes.
+To use one, open content/layout.json (not a file in this folder), click the pencil, and set `template` to the file name without .json, for example `frontporch`. Set `domain` and `timezone` in the same file, then Commit changes. To switch a musician to another template later, change that one word.
+
+Don't edit the files in this folder. `demo.json` is the Grace Miller demo.
 
 | Template | Group | For | File |
 |---|---|---|---|

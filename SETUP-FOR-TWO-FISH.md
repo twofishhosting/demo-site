@@ -17,13 +17,12 @@ You do this once per customer, and it takes about 20 minutes. Steps 1 to 3 happe
 - Click **uploading an existing file** and drag in everything from this folder. Hidden items are easy to miss, so make sure `.pages.yml` and `.github` are included. On a Mac, press Cmd+Shift+. to show hidden files.
 - Click **Commit changes**.
 
-**5. Set their template.** The first answer in their content form says which template they picked, for example "Jubilee · Christian (jubilee)". The word in brackets is the file name.
-- In GitHub, open the `templates` folder, then that template's file (for example `jubilee.json`), and click the **copy** icon at the top right of the file.
-- Go back, open `content/layout.json`, click the pencil, select everything, and paste.
-- Change `domain` to their address (for example `www.gracemillermusic.com`) and `timezone` to where they live.
+**5. Set their template.** The first answer in their content form says which template they picked, for example "Jubilee · Christian (jubilee)". The word in brackets is the template's name.
+- In GitHub, open `content/layout.json` and click the pencil. (Not a file in the `templates` folder.)
+- Change three things: `template` to that name (for example `jubilee`), `domain` to their address (for example `www.gracemillermusic.com`), and `timezone` to where they live.
 - Click **Commit changes**, then **Commit changes** again.
 
-`templates/README.md` lists all 21 templates. Then put their content in through the editor (Pages CMS). Any section left empty hides itself.
+`templates/README.md` lists all 21 templates. Then put their content in through the editor (Pages CMS). Any section left empty hides itself. If the name is misspelled, the Cloudflare build fails and its log says which name it couldn't find.
 
 **6. Connect Cloudflare.**
 1. In the Cloudflare dashboard's left menu, click **Workers & Pages**.
@@ -63,5 +62,5 @@ You do this once per customer, and it takes about 20 minutes. Steps 1 to 3 happe
 - **Build limit.** Cloudflare's free plan allows 500 builds a month across all your sites, one at a time. A build happens each time a musician saves. That's plenty for your first customers. When you get busy, Cloudflare's paid plan raises the limit.
 - **File size.** A single file can be at most 25 MB, which is fine for photos and MP3 previews. Full albums for sale live on Bandcamp, not here.
 - **Undo is built in.** GitHub keeps every version. If a musician deletes something by mistake, you can restore it from the file's **History**.
-- **Switching templates.** Copy a different file from `templates` into `content/layout.json` (step 5). Their content stays.
+- **Switching templates.** Change the `template` word in `content/layout.json` (step 5). Their content stays.
 - **Design improvements.** To get a kit update onto every customer site, replace `kit/kit.js` in each repository.

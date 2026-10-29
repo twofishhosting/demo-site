@@ -1,0 +1,47 @@
+{
+  "_note": "Two Fish only. The Grace Miller demo layout (Sanctuary style). Kept so the demo site looks the same.",
+  "style": "sanctuary",
+  "domain": "www.REPLACE.com",
+  "timezone": "America/New_York",
+  "genre": [
+    "Contemporary Christian",
+    "Worship",
+    "Singer-Songwriter"
+  ],
+  "newsletter_form_action": "",
+  "prayer_form_action": "",
+  "sections": [
+    {
+      "k": "hero",
+      "v": "verse"
+    },
+    {
+      "k": "music",
+      "v": "album"
+    },
+    {
+      "k": "videos",
+      "v": "feature"
+    },
+    {
+      "k": "dates",
+      "v": "tickets"
+    },
+    {
+      "k": "podcast",
+      "v": "feature"
+    },
+    {
+      "k": "story",
+      "v": "portrait"
+    },
+    {
+      "k": "merch",
+      "v": "cards"
+    },
+    {
+      "k": "contact",
+      "v": "letter"
+    }
+  ]
+}

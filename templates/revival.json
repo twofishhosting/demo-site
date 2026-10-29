@@ -1,5 +1,5 @@
 {
-  "_note": "Two Fish only. Template: Neon Revival · Christian and secular (revival). Copy this whole file into content/layout.json, then change domain and timezone.",
+  "_note": "Two Fish only. The Neon Revival template (Christian and secular). Don't edit this file: a site uses it when content/layout.json says \"template\": \"revival\".",
   "style": "revival",
   "domain": "www.REPLACE.com",
   "timezone": "America/New_York",
