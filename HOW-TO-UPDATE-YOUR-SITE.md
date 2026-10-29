@@ -19,6 +19,12 @@ Welcome! You can change your own dates, videos, interviews, photos and songs any
 | Update songs or the album | **Album and songs** |
 | Add or change merch | **Merch** |
 | Update emails and social links | **Contact and links** |
+| Your two collections of songs | **Music collections** |
+| What you offer churches and venues | **Booking options** |
+| Press quotes | **Press kit** |
+| Song list, packages, devotions, giving or chord charts | The item with that name |
+
+Your menu shows every item, but your site only shows the ones your template uses. Leave the others empty.
 
 When you're done, click **Save**. Your site updates itself in about a minute.
 
@@ -26,5 +32,5 @@ When you're done, click **Save**. Your site updates itself in about a minute.
 
 - **You don't need to delete old dates.** They disappear from your site after the day has passed.
 - **Photos:** wide photos (landscape) work best for the main photo, and tall photos (portrait) for your portrait. Under 2 MB each keeps your site fast.
-- **You can't break the design.** You're only changing your words and pictures, and the look stays the same. Want a different look, a new section, or something moved? Just ask Two Fish.
+- **You can't break the design.** You're only changing your words and pictures, and the look stays the same. Want a different template? Just ask Two Fish. Your words and photos move with you.
 - **Made a mistake?** Email us. Every past version is saved, and we can put it back.

@@ -1,0 +1,51 @@
+{
+  "_note": "Two Fish only. Template: New Morning · Christian (morning). Copy this whole file into content/layout.json, then change domain and timezone.",
+  "style": "morning",
+  "domain": "www.REPLACE.com",
+  "timezone": "America/New_York",
+  "genre": [
+    "Contemporary Christian",
+    "Singer-songwriter"
+  ],
+  "book_label": "",
+  "date_kinds": {
+    "church": "Sunday mornings",
+    "venue": "Concerts and events"
+  },
+  "titles": {
+    "devotions_eyebrow": "Song devotions",
+    "devotions_heading": "The verses behind the new songs"
+  },
+  "newsletter_form_action": "",
+  "prayer_form_action": "",
+  "sections": [
+    {
+      "k": "hero",
+      "v": "dawn"
+    },
+    {
+      "k": "links",
+      "v": "bar"
+    },
+    {
+      "k": "devotions",
+      "v": "cards"
+    },
+    {
+      "k": "music",
+      "v": "compact"
+    },
+    {
+      "k": "dates",
+      "v": "poster"
+    },
+    {
+      "k": "press",
+      "v": "kit"
+    },
+    {
+      "k": "booking",
+      "v": "two"
+    }
+  ]
+}

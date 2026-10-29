@@ -1,0 +1,44 @@
+{
+  "_note": "Two Fish only. Template: Lumen · Christian (lumen). Copy this whole file into content/layout.json, then change domain and timezone.",
+  "style": "lumen",
+  "domain": "www.REPLACE.com",
+  "timezone": "America/New_York",
+  "genre": [
+    "Worship",
+    "Contemporary Christian"
+  ],
+  "book_label": "Host a worship night",
+  "titles": {},
+  "newsletter_form_action": "",
+  "prayer_form_action": "",
+  "sections": [
+    {
+      "k": "hero",
+      "v": "photo"
+    },
+    {
+      "k": "music",
+      "v": "playlist"
+    },
+    {
+      "k": "resources",
+      "v": "cards"
+    },
+    {
+      "k": "videos",
+      "v": "wide"
+    },
+    {
+      "k": "dates",
+      "v": "list"
+    },
+    {
+      "k": "give",
+      "v": "band"
+    },
+    {
+      "k": "booking",
+      "v": "steps"
+    }
+  ]
+}

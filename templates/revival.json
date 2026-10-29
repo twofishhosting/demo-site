@@ -1,0 +1,45 @@
+{
+  "_note": "Two Fish only. Template: Neon Revival · Christian and secular (revival). Copy this whole file into content/layout.json, then change domain and timezone.",
+  "style": "revival",
+  "domain": "www.REPLACE.com",
+  "timezone": "America/New_York",
+  "genre": [
+    "Rock",
+    "Pop",
+    "Worship"
+  ],
+  "book_label": "",
+  "titles": {},
+  "newsletter_form_action": "",
+  "prayer_form_action": "",
+  "sections": [
+    {
+      "k": "hero",
+      "v": "poster"
+    },
+    {
+      "k": "videos",
+      "v": "wide"
+    },
+    {
+      "k": "dates",
+      "v": "poster"
+    },
+    {
+      "k": "music",
+      "v": "playlist"
+    },
+    {
+      "k": "merch",
+      "v": "shelf"
+    },
+    {
+      "k": "paths",
+      "v": "doors"
+    },
+    {
+      "k": "booking",
+      "v": "banner"
+    }
+  ]
+}

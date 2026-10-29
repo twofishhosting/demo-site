@@ -1,0 +1,44 @@
+{
+  "_note": "Two Fish only. Template: Two Lane · Secular (twolane). Copy this whole file into content/layout.json, then change domain and timezone.",
+  "style": "twolane",
+  "domain": "www.REPLACE.com",
+  "timezone": "America/New_York",
+  "genre": [
+    "Country",
+    "Texas country"
+  ],
+  "book_label": "Book a dance",
+  "titles": {},
+  "newsletter_form_action": "",
+  "prayer_form_action": "",
+  "sections": [
+    {
+      "k": "hero",
+      "v": "collage"
+    },
+    {
+      "k": "dates",
+      "v": "tickets"
+    },
+    {
+      "k": "music",
+      "v": "records"
+    },
+    {
+      "k": "story",
+      "v": "portrait"
+    },
+    {
+      "k": "merch",
+      "v": "cards"
+    },
+    {
+      "k": "videos",
+      "v": "feature"
+    },
+    {
+      "k": "booking",
+      "v": "letter"
+    }
+  ]
+}

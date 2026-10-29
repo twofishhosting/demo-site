@@ -1,0 +1,43 @@
+{
+  "_note": "Two Fish only. Template: Sprout · Christian (sprout). Copy this whole file into content/layout.json, then change domain and timezone.",
+  "style": "sprout",
+  "domain": "www.REPLACE.com",
+  "timezone": "America/New_York",
+  "genre": [
+    "Kids' worship",
+    "Family"
+  ],
+  "book_label": "Plan a kids' worship party",
+  "titles": {
+    "resources_heading": "Sing and move along at your church",
+    "resources_note": "Lyrics, chord charts and motions videos are free for kids' ministries. Every song is registered with CCLI."
+  },
+  "newsletter_form_action": "",
+  "prayer_form_action": "",
+  "sections": [
+    {
+      "k": "hero",
+      "v": "verse"
+    },
+    {
+      "k": "videos",
+      "v": "grid"
+    },
+    {
+      "k": "music",
+      "v": "album"
+    },
+    {
+      "k": "resources",
+      "v": "cards"
+    },
+    {
+      "k": "merch",
+      "v": "feature"
+    },
+    {
+      "k": "booking",
+      "v": "steps"
+    }
+  ]
+}

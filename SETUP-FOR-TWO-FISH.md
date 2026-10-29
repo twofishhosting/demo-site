@@ -17,23 +17,41 @@ You do this once per customer, and it takes about 20 minutes. Steps 1 to 3 happe
 - Click **uploading an existing file** and drag in everything from this folder. Hidden items are easy to miss, so make sure `.pages.yml` and `.github` are included. On a Mac, press Cmd+Shift+. to show hidden files.
 - Click **Commit changes**.
 
-**5. Put in their details.** In GitHub, open `content/layout.json` and click the pencil to edit it. Set these:
-- `domain`
-- `style`
-- `timezone`
-- the section order (copy it from the recipe they sent from the Site Builder)
+**5. Set their template.** The first answer in their content form says which template they picked, for example "Jubilee · Christian (jubilee)". The word in brackets is the file name.
+- In GitHub, open the `templates` folder, then that template's file (for example `jubilee.json`), and click the **copy** icon at the top right of the file.
+- Go back, open `content/layout.json`, click the pencil, select everything, and paste.
+- Change `domain` to their address (for example `www.gracemillermusic.com`) and `timezone` to where they live.
+- Click **Commit changes**, then **Commit changes** again.
 
-You can fill in their content now, or let them do it in the editor.
+`templates/README.md` lists all 21 templates. Then put their content in through the editor (Pages CMS). Any section left empty hides itself.
 
 **6. Connect Cloudflare.**
-- In Cloudflare, go to **Workers & Pages → Create → Pages → Connect to Git**, then pick the repository.
-- **Build command:** `node build.js`
-- **Build output directory:** `public`
-- Click **Save and Deploy**. In about a minute the site is live at a `.pages.dev` address.
-- Then go to **Custom domains** and add their domain. Their domain stays at Hover, and Cloudflare shows the DNS record to add there.
+1. In the Cloudflare dashboard's left menu, click **Workers & Pages**.
+2. Click **Create application**, then the **Pages** tab, then **Connect to Git**. If you only see Workers choices, look for a link that mentions Pages.
+3. Choose **GitHub**. The first time, Cloudflare asks to connect to GitHub: pick your Two Fish account or organization, choose **All repositories**, and click **Install & Authorize**.
+4. Pick the musician's repository and click **Begin setup**.
+5. Fill in the form:
+   - **Project name:** for example `gracemiller`. It becomes `gracemiller.pages.dev`.
+   - **Production branch:** `main`
+   - **Framework preset:** `None`
+   - **Build command:** `node build.js`
+   - **Build output directory:** `public`
+   - **Root directory:** leave it empty. If you uploaded the `demo-site` folder itself instead of its contents, type `demo-site` here.
+6. Click **Save and Deploy**. Wait about a minute until the log says **Success**, then click **Continue to project**. The site is now live at `https://gracemiller.pages.dev`.
+
+**Add their domain (when it's in your Cloudflare account)**
+1. In the project, click **Custom domains**, then **Set up a domain**.
+2. Type `gracemillermusic.com`, then click **Continue**, then **Activate domain**. Cloudflare adds the DNS record itself.
+3. Repeat for `www.gracemillermusic.com`, so both addresses work.
+4. Wait for the status to show **Active**. This usually takes a few minutes, and the security certificate is included.
+5. In GitHub, check that `domain` in `content/layout.json` matches the main address you want Google to use.
+
+**If the build says "Failed":** click it and read the last red lines.
+- `Could not read content/...` means a content file has a typo. GitHub's **History** shows the last change, so you can undo it.
+- A Node error: add an environment variable `NODE_VERSION` = `20` under **Settings → Variables and Secrets**, then click **Retry deployment**.
 
 **7. Weekly refresh (optional, recommended).**
-- In Cloudflare, go to the project's **Settings → Builds → Deploy hooks**. Create a hook and copy the link.
+- In Cloudflare, open the project, go to **Settings → Builds** and click **Add deploy hook**. Name it `weekly`, choose branch `main`, save it, and copy the link it shows.
 - In GitHub, go to **Settings → Secrets and variables → Actions → New secret**. Name it `CF_DEPLOY_HOOK` and paste the link.
 
 **8. Invite the musician to the editor.** In Pages CMS, open their repository and go to **Settings → Collaborators**. Enter the musician's email. They'll get an invitation, and they don't need a GitHub account.
@@ -45,4 +63,5 @@ You can fill in their content now, or let them do it in the editor.
 - **Build limit.** Cloudflare's free plan allows 500 builds a month across all your sites, one at a time. A build happens each time a musician saves. That's plenty for your first customers. When you get busy, Cloudflare's paid plan raises the limit.
 - **File size.** A single file can be at most 25 MB, which is fine for photos and MP3 previews. Full albums for sale live on Bandcamp, not here.
 - **Undo is built in.** GitHub keeps every version. If a musician deletes something by mistake, you can restore it from the file's **History**.
-- **Changing the look later.** Edit `content/layout.json`. To get a design improvement onto every customer site, replace `kit/kit.js` in each repository.
+- **Switching templates.** Copy a different file from `templates` into `content/layout.json` (step 5). Their content stays.
+- **Design improvements.** To get a kit update onto every customer site, replace `kit/kit.js` in each repository.

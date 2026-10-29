@@ -1,0 +1,49 @@
+{
+  "_note": "Two Fish only. Template: Heartland · Christian and secular (heartland). Copy this whole file into content/layout.json, then change domain and timezone.",
+  "style": "heartland",
+  "domain": "www.REPLACE.com",
+  "timezone": "America/New_York",
+  "genre": [
+    "Country",
+    "Southern Gospel",
+    "Family band"
+  ],
+  "book_label": "",
+  "titles": {},
+  "newsletter_form_action": "",
+  "prayer_form_action": "",
+  "sections": [
+    {
+      "k": "hero",
+      "v": "banner"
+    },
+    {
+      "k": "dates",
+      "v": "tickets"
+    },
+    {
+      "k": "paths",
+      "v": "split"
+    },
+    {
+      "k": "music",
+      "v": "records"
+    },
+    {
+      "k": "merch",
+      "v": "cards"
+    },
+    {
+      "k": "videos",
+      "v": "grid"
+    },
+    {
+      "k": "press",
+      "v": "kit"
+    },
+    {
+      "k": "booking",
+      "v": "banner"
+    }
+  ]
+}

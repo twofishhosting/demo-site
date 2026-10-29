@@ -1,0 +1,49 @@
+{
+  "_note": "Two Fish only. Template: Hymnal · Christian (hymnal). Copy this whole file into content/layout.json, then change domain and timezone.",
+  "style": "hymnal",
+  "domain": "www.REPLACE.com",
+  "timezone": "America/New_York",
+  "genre": [
+    "Hymns",
+    "Sacred piano"
+  ],
+  "book_label": "",
+  "date_kinds": {
+    "church": "Church services",
+    "venue": "Recitals"
+  },
+  "titles": {
+    "devotions_eyebrow": "Devotions",
+    "devotions_heading": "Hymns and the scripture behind them",
+    "resources_heading": "Play these hymns at your church",
+    "resources_note": "Piano arrangements are free to download for church use. The hymns themselves are in the public domain."
+  },
+  "newsletter_form_action": "",
+  "prayer_form_action": "",
+  "sections": [
+    {
+      "k": "hero",
+      "v": "hymnal"
+    },
+    {
+      "k": "music",
+      "v": "stories"
+    },
+    {
+      "k": "devotions",
+      "v": "cards"
+    },
+    {
+      "k": "resources",
+      "v": "cards"
+    },
+    {
+      "k": "dates",
+      "v": "split"
+    },
+    {
+      "k": "booking",
+      "v": "letter"
+    }
+  ]
+}

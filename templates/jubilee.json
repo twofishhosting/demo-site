@@ -1,0 +1,44 @@
+{
+  "_note": "Two Fish only. Template: Jubilee · Christian (jubilee). Copy this whole file into content/layout.json, then change domain and timezone.",
+  "style": "jubilee",
+  "domain": "www.REPLACE.com",
+  "timezone": "America/New_York",
+  "genre": [
+    "Gospel",
+    "Choir"
+  ],
+  "book_label": "Invite the choir",
+  "date_kinds": {
+    "church": "Church services",
+    "venue": "Concerts and conferences"
+  },
+  "titles": {},
+  "newsletter_form_action": "",
+  "prayer_form_action": "",
+  "sections": [
+    {
+      "k": "hero",
+      "v": "window"
+    },
+    {
+      "k": "videos",
+      "v": "grid"
+    },
+    {
+      "k": "music",
+      "v": "records"
+    },
+    {
+      "k": "dates",
+      "v": "cards"
+    },
+    {
+      "k": "story",
+      "v": "timeline"
+    },
+    {
+      "k": "booking",
+      "v": "two"
+    }
+  ]
+}

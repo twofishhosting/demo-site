@@ -1,0 +1,45 @@
+{
+  "_note": "Two Fish only. Template: Signal · Secular (signal). Copy this whole file into content/layout.json, then change domain and timezone.",
+  "style": "signal",
+  "domain": "www.REPLACE.com",
+  "timezone": "America/New_York",
+  "genre": [
+    "Electronic",
+    "Melodic house",
+    "DJ"
+  ],
+  "book_label": "Booking",
+  "titles": {
+    "podcast_eyebrow": "Monthly mix show",
+    "podcast_heading": "Low Tide Radio",
+    "podcast_badge": "Latest mix"
+  },
+  "newsletter_form_action": "",
+  "prayer_form_action": "",
+  "sections": [
+    {
+      "k": "hero",
+      "v": "type"
+    },
+    {
+      "k": "links",
+      "v": "bar"
+    },
+    {
+      "k": "music",
+      "v": "sets"
+    },
+    {
+      "k": "dates",
+      "v": "poster"
+    },
+    {
+      "k": "podcast",
+      "v": "feature"
+    },
+    {
+      "k": "booking",
+      "v": "banner"
+    }
+  ]
+}

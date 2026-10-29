@@ -1,0 +1,40 @@
+{
+  "_note": "Two Fish only. Template: Paper Moon · Secular (papermoon). Copy this whole file into content/layout.json, then change domain and timezone.",
+  "style": "papermoon",
+  "domain": "www.REPLACE.com",
+  "timezone": "America/New_York",
+  "genre": [
+    "Folk",
+    "Singer-songwriter"
+  ],
+  "book_label": "",
+  "titles": {},
+  "newsletter_form_action": "",
+  "prayer_form_action": "",
+  "sections": [
+    {
+      "k": "hero",
+      "v": "arch"
+    },
+    {
+      "k": "music",
+      "v": "stories"
+    },
+    {
+      "k": "merch",
+      "v": "feature"
+    },
+    {
+      "k": "dates",
+      "v": "split"
+    },
+    {
+      "k": "story",
+      "v": "quote"
+    },
+    {
+      "k": "booking",
+      "v": "two"
+    }
+  ]
+}

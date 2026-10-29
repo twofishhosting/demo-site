@@ -1,0 +1,45 @@
+{
+  "_note": "Two Fish only. Template: Coastline · Christian and secular (coastline). Copy this whole file into content/layout.json, then change domain and timezone.",
+  "style": "coastline",
+  "domain": "www.REPLACE.com",
+  "timezone": "America/New_York",
+  "genre": [
+    "Acoustic",
+    "Folk",
+    "Worship"
+  ],
+  "book_label": "",
+  "titles": {},
+  "newsletter_form_action": "",
+  "prayer_form_action": "",
+  "sections": [
+    {
+      "k": "hero",
+      "v": "quiet"
+    },
+    {
+      "k": "story",
+      "v": "quote"
+    },
+    {
+      "k": "music",
+      "v": "sets"
+    },
+    {
+      "k": "podcast",
+      "v": "feature"
+    },
+    {
+      "k": "paths",
+      "v": "stacked"
+    },
+    {
+      "k": "dates",
+      "v": "split"
+    },
+    {
+      "k": "booking",
+      "v": "letter"
+    }
+  ]
+}

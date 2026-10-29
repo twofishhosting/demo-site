@@ -1,0 +1,45 @@
+{
+  "_note": "Two Fish only. Template: Afterglow · Secular (afterglow). Copy this whole file into content/layout.json, then change domain and timezone.",
+  "style": "afterglow",
+  "domain": "www.REPLACE.com",
+  "timezone": "America/New_York",
+  "genre": [
+    "R&B",
+    "Hip-hop",
+    "Neo-soul"
+  ],
+  "book_label": "",
+  "titles": {},
+  "newsletter_form_action": "",
+  "prayer_form_action": "",
+  "sections": [
+    {
+      "k": "hero",
+      "v": "cover"
+    },
+    {
+      "k": "links",
+      "v": "bar"
+    },
+    {
+      "k": "videos",
+      "v": "wide"
+    },
+    {
+      "k": "music",
+      "v": "compact"
+    },
+    {
+      "k": "dates",
+      "v": "cards"
+    },
+    {
+      "k": "press",
+      "v": "kit"
+    },
+    {
+      "k": "booking",
+      "v": "two"
+    }
+  ]
+}

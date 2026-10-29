@@ -1,0 +1,44 @@
+{
+  "_note": "Two Fish only. Template: Ballroom · Secular (ballroom). Copy this whole file into content/layout.json, then change domain and timezone.",
+  "style": "ballroom",
+  "domain": "www.REPLACE.com",
+  "timezone": "America/New_York",
+  "genre": [
+    "Wedding band",
+    "Party band",
+    "Motown",
+    "Pop"
+  ],
+  "book_label": "Check your date",
+  "titles": {
+    "songlist_heading": "The song list"
+  },
+  "newsletter_form_action": "",
+  "prayer_form_action": "",
+  "sections": [
+    {
+      "k": "hero",
+      "v": "photo"
+    },
+    {
+      "k": "repertoire",
+      "v": "list"
+    },
+    {
+      "k": "videos",
+      "v": "feature"
+    },
+    {
+      "k": "booking",
+      "v": "packages"
+    },
+    {
+      "k": "press",
+      "v": "kit"
+    },
+    {
+      "k": "story",
+      "v": "quote"
+    }
+  ]
+}

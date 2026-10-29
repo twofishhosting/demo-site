@@ -1,0 +1,48 @@
+{
+  "_note": "Two Fish only. Template: Homecoming · Christian (homecoming). Copy this whole file into content/layout.json, then change domain and timezone.",
+  "style": "homecoming",
+  "domain": "www.REPLACE.com",
+  "timezone": "America/New_York",
+  "genre": [
+    "Southern gospel",
+    "Gospel"
+  ],
+  "book_label": "Book the family",
+  "date_kinds": {
+    "church": "Church services",
+    "venue": "Concerts"
+  },
+  "titles": {},
+  "newsletter_form_action": "",
+  "prayer_form_action": "",
+  "sections": [
+    {
+      "k": "hero",
+      "v": "split"
+    },
+    {
+      "k": "dates",
+      "v": "tickets"
+    },
+    {
+      "k": "music",
+      "v": "album"
+    },
+    {
+      "k": "story",
+      "v": "portrait"
+    },
+    {
+      "k": "merch",
+      "v": "cards"
+    },
+    {
+      "k": "give",
+      "v": "band"
+    },
+    {
+      "k": "booking",
+      "v": "banner"
+    }
+  ]
+}

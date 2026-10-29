@@ -1,0 +1,44 @@
+{
+  "_note": "Two Fish only. Template: Garage · Secular (garage). Copy this whole file into content/layout.json, then change domain and timezone.",
+  "style": "garage",
+  "domain": "www.REPLACE.com",
+  "timezone": "America/New_York",
+  "genre": [
+    "Indie rock",
+    "Alternative"
+  ],
+  "book_label": "Book the band",
+  "titles": {},
+  "newsletter_form_action": "",
+  "prayer_form_action": "",
+  "sections": [
+    {
+      "k": "hero",
+      "v": "marquee"
+    },
+    {
+      "k": "music",
+      "v": "album"
+    },
+    {
+      "k": "dates",
+      "v": "poster"
+    },
+    {
+      "k": "videos",
+      "v": "grid"
+    },
+    {
+      "k": "story",
+      "v": "timeline"
+    },
+    {
+      "k": "merch",
+      "v": "shelf"
+    },
+    {
+      "k": "booking",
+      "v": "banner"
+    }
+  ]
+}

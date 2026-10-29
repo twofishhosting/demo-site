@@ -1,0 +1,45 @@
+{
+  "_note": "Two Fish only. Template: Front Porch · Christian and secular (frontporch). Copy this whole file into content/layout.json, then change domain and timezone.",
+  "style": "frontporch",
+  "domain": "www.REPLACE.com",
+  "timezone": "America/New_York",
+  "genre": [
+    "Bluegrass",
+    "Folk",
+    "Southern Gospel"
+  ],
+  "book_label": "",
+  "titles": {},
+  "newsletter_form_action": "",
+  "prayer_form_action": "",
+  "sections": [
+    {
+      "k": "hero",
+      "v": "arch"
+    },
+    {
+      "k": "dates",
+      "v": "cards"
+    },
+    {
+      "k": "paths",
+      "v": "toggle"
+    },
+    {
+      "k": "music",
+      "v": "sets"
+    },
+    {
+      "k": "videos",
+      "v": "wide"
+    },
+    {
+      "k": "resources",
+      "v": "table"
+    },
+    {
+      "k": "booking",
+      "v": "two"
+    }
+  ]
+}

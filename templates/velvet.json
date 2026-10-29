@@ -1,0 +1,45 @@
+{
+  "_note": "Two Fish only. Template: Velvet Hour · Christian and secular (velvet). Copy this whole file into content/layout.json, then change domain and timezone.",
+  "style": "velvet",
+  "domain": "www.REPLACE.com",
+  "timezone": "America/New_York",
+  "genre": [
+    "Jazz",
+    "Standards",
+    "Gospel"
+  ],
+  "book_label": "",
+  "titles": {},
+  "newsletter_form_action": "",
+  "prayer_form_action": "",
+  "sections": [
+    {
+      "k": "hero",
+      "v": "frame"
+    },
+    {
+      "k": "music",
+      "v": "playlist"
+    },
+    {
+      "k": "story",
+      "v": "quote"
+    },
+    {
+      "k": "paths",
+      "v": "stacked"
+    },
+    {
+      "k": "dates",
+      "v": "poster"
+    },
+    {
+      "k": "merch",
+      "v": "feature"
+    },
+    {
+      "k": "booking",
+      "v": "letter"
+    }
+  ]
+}

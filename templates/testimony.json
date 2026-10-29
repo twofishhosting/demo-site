@@ -1,0 +1,52 @@
+{
+  "_note": "Two Fish only. Template: Testimony · Christian (testimony). Copy this whole file into content/layout.json, then change domain and timezone.",
+  "style": "testimony",
+  "domain": "www.REPLACE.com",
+  "timezone": "America/New_York",
+  "genre": [
+    "Christian hip-hop",
+    "Rap"
+  ],
+  "book_label": "Book Eli",
+  "date_kinds": {
+    "church": "Youth nights",
+    "venue": "Camps and conferences"
+  },
+  "titles": {
+    "podcast_eyebrow": "Interviews",
+    "podcast_heading": "Talking faith, music and the city",
+    "podcast_badge": "Latest interview"
+  },
+  "newsletter_form_action": "",
+  "prayer_form_action": "",
+  "sections": [
+    {
+      "k": "hero",
+      "v": "poster"
+    },
+    {
+      "k": "links",
+      "v": "bar"
+    },
+    {
+      "k": "videos",
+      "v": "feature"
+    },
+    {
+      "k": "music",
+      "v": "sets"
+    },
+    {
+      "k": "podcast",
+      "v": "feature"
+    },
+    {
+      "k": "dates",
+      "v": "split"
+    },
+    {
+      "k": "booking",
+      "v": "two"
+    }
+  ]
+}

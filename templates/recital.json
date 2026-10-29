@@ -1,0 +1,48 @@
+{
+  "_note": "Two Fish only. Template: Recital · Secular (recital). Copy this whole file into content/layout.json, then change domain and timezone.",
+  "style": "recital",
+  "domain": "www.REPLACE.com",
+  "timezone": "America/New_York",
+  "genre": [
+    "Classical",
+    "Piano"
+  ],
+  "book_label": "",
+  "titles": {
+    "songlist_eyebrow": "Repertoire",
+    "songlist_heading": "Programs and favorites",
+    "songlist_unit": "pieces"
+  },
+  "newsletter_form_action": "",
+  "prayer_form_action": "",
+  "sections": [
+    {
+      "k": "hero",
+      "v": "frame"
+    },
+    {
+      "k": "story",
+      "v": "timeline"
+    },
+    {
+      "k": "repertoire",
+      "v": "list"
+    },
+    {
+      "k": "music",
+      "v": "album"
+    },
+    {
+      "k": "dates",
+      "v": "list"
+    },
+    {
+      "k": "press",
+      "v": "kit"
+    },
+    {
+      "k": "booking",
+      "v": "letter"
+    }
+  ]
+}

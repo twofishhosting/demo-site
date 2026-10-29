@@ -10,7 +10,7 @@ This folder is one musician's whole website, which starts out as the "Grace Mill
 | `media/` | Their photos, song previews and PDFs | **The musician**, through the editor |
 | `kit/` | The designs, which is the part we built and tested | **Two Fish only**. It never needs touching. |
 
-`content/layout.json` sets the style and the order of the sections. The musician's editor doesn't show this file, so only Two Fish changes the look.
+`content/layout.json` sets the template: its style and the order of its sections. The musician's editor doesn't show this file, so only Two Fish changes the look. The `templates` folder holds one ready layout for each of the 21 templates on twofishhosting.com/design.html.
 
 ## How it works
 

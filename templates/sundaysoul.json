@@ -1,0 +1,49 @@
+{
+  "_note": "Two Fish only. Template: Sunday Soul · Christian and secular (sundaysoul). Copy this whole file into content/layout.json, then change domain and timezone.",
+  "style": "sundaysoul",
+  "domain": "www.REPLACE.com",
+  "timezone": "America/New_York",
+  "genre": [
+    "Soul",
+    "R&B",
+    "Gospel"
+  ],
+  "book_label": "",
+  "titles": {},
+  "newsletter_form_action": "",
+  "prayer_form_action": "",
+  "sections": [
+    {
+      "k": "hero",
+      "v": "record"
+    },
+    {
+      "k": "music",
+      "v": "records"
+    },
+    {
+      "k": "videos",
+      "v": "feature"
+    },
+    {
+      "k": "paths",
+      "v": "toggle"
+    },
+    {
+      "k": "dates",
+      "v": "cards"
+    },
+    {
+      "k": "resources",
+      "v": "table"
+    },
+    {
+      "k": "story",
+      "v": "portrait"
+    },
+    {
+      "k": "booking",
+      "v": "two"
+    }
+  ]
+}

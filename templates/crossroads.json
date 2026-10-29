@@ -1,0 +1,45 @@
+{
+  "_note": "Two Fish only. Template: Crossroads · Christian and secular (crossroads). Copy this whole file into content/layout.json, then change domain and timezone.",
+  "style": "crossroads",
+  "domain": "www.REPLACE.com",
+  "timezone": "America/New_York",
+  "genre": [
+    "Americana",
+    "Country",
+    "Christian"
+  ],
+  "book_label": "",
+  "titles": {},
+  "newsletter_form_action": "",
+  "prayer_form_action": "",
+  "sections": [
+    {
+      "k": "hero",
+      "v": "split"
+    },
+    {
+      "k": "story",
+      "v": "portrait"
+    },
+    {
+      "k": "music",
+      "v": "records"
+    },
+    {
+      "k": "paths",
+      "v": "doors"
+    },
+    {
+      "k": "dates",
+      "v": "split"
+    },
+    {
+      "k": "press",
+      "v": "kit"
+    },
+    {
+      "k": "booking",
+      "v": "banner"
+    }
+  ]
+}
