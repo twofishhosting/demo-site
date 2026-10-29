@@ -55,6 +55,10 @@ content:
               label: Concert or venue
             - name: church
               label: Church service or event
+      - name: tag
+        label: Label on the date (optional)
+        type: string
+        description: A word or two shown on the date, for example Worship night, Concert or Youth night. Leave empty for the usual Church or Show.
       - name: details
         label: Short note (optional)
         type: string
@@ -172,6 +176,22 @@ content:
         label: Verse reference
         type: string
         description: For example, Psalm 96:1 · KJV
+      - name: timeline
+        label: Milestones (only if your template shows a timeline)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{year} {text}"
+        fields:
+          - name: year
+            label: Year
+            type: string
+            required: true
+          - name: text
+            label: What happened
+            type: string
+            required: true
 
   - name: album
     label: Album and songs
@@ -297,6 +317,17 @@ content:
         type: file
         options:
           media: files
+      - name: chart_label
+        label: Name for the chart button (optional)
+        type: string
+        description: Leave empty for "Chord chart". For example, Piano score or Lyrics and chords.
+      - name: video_link
+        label: Tutorial or motions video link (optional)
+        type: string
+      - name: video_label
+        label: Name for the video button (optional)
+        type: string
+        description: Leave empty for "Tutorial video". For example, Motions video.
 
   - name: links
     label: Contact and links
@@ -338,4 +369,303 @@ content:
         type: string
       - name: tiktok
         label: TikTok
+        type: string
+
+  # ---- Added with the 21 templates. Each item only shows on the site if your template uses it. ----
+
+  - name: collections
+    label: Music collections (albums, EPs, sets)
+    type: file
+    path: content/collections.json
+    format: json
+    list: true
+    fields:
+      - name: label
+        label: Short label
+        type: string
+        description: For example, Hymns and worship, or Live album
+      - name: title
+        label: Album or collection title
+        type: string
+        required: true
+      - name: released
+        label: Release date
+        type: date
+        options:
+          format: yyyy-MM-dd
+      - name: note
+        label: A sentence about it
+        type: text
+      - name: cover
+        label: Cover (square)
+        type: image
+        options:
+          media: photos
+      - name: bandcamp_link
+        label: Bandcamp link
+        type: string
+      - name: songs
+        label: Songs
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: title
+            label: Song title
+            type: string
+            required: true
+          - name: length
+            label: Length
+            type: string
+            description: For example, 3:42
+          - name: scripture
+            label: Scripture behind the song (optional)
+            type: string
+          - name: story
+            label: Story behind the song (optional)
+            type: text
+          - name: audio
+            label: Song preview file (MP3)
+            type: file
+            options:
+              media: music
+            description: Plays in the player on your site. Keep each file under 25 MB.
+          - name: free_download
+            label: Offer this song as a free download
+            type: boolean
+          - name: buy_link
+            label: Bandcamp link to buy this song
+            type: string
+
+  - name: booking
+    label: Booking options
+    type: file
+    path: content/booking.json
+    format: json
+    fields:
+      - name: note
+        label: A sentence above your booking options
+        type: string
+        description: For example, Share the date, the place and a little about your event.
+      - name: options
+        label: Booking options (up to two)
+        type: object
+        list:
+          max: 2
+          collapsible:
+            collapsed: true
+            summary: "{label}"
+        fields:
+          - name: type
+            label: Who is this for?
+            type: select
+            options:
+              values:
+                - name: church
+                  label: Churches
+                - name: venue
+                  label: Venues and events
+                - name: other
+                  label: Something else
+          - name: label
+            label: Name
+            type: string
+            required: true
+            description: For example, For churches, or Weddings and private parties
+          - name: title
+            label: Heading (optional)
+            type: string
+          - name: blurb
+            label: One or two sentences
+            type: text
+          - name: offers
+            label: What you offer
+            type: string
+            list: true
+            description: One per line, for example Sunday worship, Revivals
+          - name: button
+            label: Button text
+            type: string
+            description: For example, Book for your church
+          - name: listen_label
+            label: Listen button text (optional)
+            type: string
+            description: For example, Hear the hymns
+          - name: photo
+            label: Photo (optional)
+            type: image
+            options:
+              media: photos
+      - name: packages_note
+        label: Note under your packages (optional)
+        type: string
+
+  - name: packages
+    label: Packages
+    type: file
+    path: content/packages.json
+    format: json
+    list: true
+    fields:
+      - name: name
+        label: Package name
+        type: string
+        required: true
+      - name: description
+        label: One sentence about it
+        type: string
+      - name: includes
+        label: What's included
+        type: string
+        list: true
+
+  - name: hosting
+    label: Hosting a night (steps for churches)
+    type: file
+    path: content/hosting.json
+    format: json
+    fields:
+      - name: heading
+        label: Heading
+        type: string
+        description: For example, Host a worship night
+      - name: steps
+        label: Steps
+        type: object
+        list:
+          max: 4
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: title
+            label: Step
+            type: string
+            required: true
+          - name: text
+            label: One sentence
+            type: string
+      - name: needs_heading
+        label: Heading for what you need (optional)
+        type: string
+        description: Leave empty for "What we'll ask of you"
+      - name: needs
+        label: What you need from the church
+        type: string
+        list: true
+      - name: button
+        label: Button text
+        type: string
+        description: For example, Ask about a date
+
+  - name: press
+    label: Press kit
+    type: file
+    path: content/press.json
+    format: json
+    fields:
+      - name: quotes
+        label: Quotes about you
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{source}"
+        fields:
+          - name: quote
+            label: Quote
+            type: text
+            required: true
+          - name: source
+            label: Who said it
+            type: string
+      - name: fans_of
+        label: For fans of (optional)
+        type: string
+        description: Two or three artists people compare you to
+      - name: photos_link
+        label: Link to press photos (optional)
+        type: string
+
+  - name: songlist
+    label: Song list
+    type: file
+    path: content/songlist.json
+    format: json
+    fields:
+      - name: groups
+        label: Groups of songs
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name}"
+        fields:
+          - name: name
+            label: Group name
+            type: string
+            required: true
+            description: For example, First dances, or Dance floor
+          - name: songs
+            label: Songs
+            type: object
+            list: true
+            fields:
+              - name: title
+                label: Song
+                type: string
+                required: true
+              - name: artist
+                label: Artist or composer
+                type: string
+      - name: note
+        label: A note under the list (optional)
+        type: string
+
+  - name: devotions
+    label: Song devotions
+    type: file
+    path: content/devotions.json
+    format: json
+    list: true
+    fields:
+      - name: song
+        label: Song
+        type: string
+      - name: reference
+        label: Verse reference
+        type: string
+        description: For example, Psalm 46:10 · KJV
+      - name: verse
+        label: The verse
+        type: text
+        required: true
+      - name: reflection
+        label: A few sentences about it
+        type: text
+
+  - name: giving
+    label: Giving
+    type: file
+    path: content/giving.json
+    format: json
+    fields:
+      - name: heading
+        label: Heading
+        type: string
+        description: For example, Partner with the ministry
+      - name: text
+        label: One or two sentences
+        type: text
+      - name: button
+        label: Button text
+        type: string
+        description: For example, Give
+      - name: link
+        label: Link to your giving page
+        type: string
+      - name: fine_print
+        label: Small print (optional)
         type: string
