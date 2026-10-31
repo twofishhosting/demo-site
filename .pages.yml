@@ -568,6 +568,7 @@ content:
     fields:
       - name: quotes
         label: Quotes about you
+        description: Shown on your website and on your press kit page (yoursite.com/epk).
         type: object
         list:
           collapsible:
@@ -585,8 +586,164 @@ content:
         label: For fans of (optional)
         type: string
         description: Two or three artists people compare you to
+      - name: short_bio
+        label: Short bio
+        type: text
+        description: Two or three sentences, written about you (Grace Miller is...). Bookers and writers copy this. Your full bio comes from your story.
+      - name: genre
+        label: Your style of music
+        type: string
+        description: For example, Americana and folk, or Modern worship
+      - name: lineup_type
+        label: How you perform, in a few words
+        type: string
+        description: For example, Solo or trio, or Five-piece band
+      - name: is_group
+        label: We're a band or group
+        type: boolean
+      - name: facts
+        label: Quick facts
+        description: Short numbers that tell your story, for example 10 / years leading worship. Three or four is plenty.
+        type: object
+        list:
+          max: 6
+          collapsible:
+            collapsed: true
+            summary: "{number} {label}"
+        fields:
+          - name: number
+            label: Number or short fact
+            type: string
+            required: true
+          - name: label
+            label: What it means
+            type: string
+            required: true
+      - name: highlights
+        label: Highlights
+        description: Big moments, newest first. For example, 2026 / Album released.
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{year} {text}"
+        fields:
+          - name: year
+            label: Year
+            type: string
+          - name: text
+            label: What happened
+            type: string
+            required: true
+      - name: lineup
+        label: Lineup
+        type: string
+        description: Who plays, for example Solo with guitar, or a trio with piano and cello
+      - name: set_length
+        label: Set length
+        type: string
+        description: For example, 45 to 90 minutes, or a Sunday service
+      - name: booking_note
+        label: Anything else bookers should know (optional)
+        type: text
+        description: For example, We bring our own sound for up to 200 people.
+      - name: booking_files
+        label: Booking documents (optional)
+        description: Stage plot, input list, rider or chord charts, as PDFs
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{label}"
+        fields:
+          - name: label
+            label: Name
+            type: string
+            required: true
+            description: For example, Stage plot (PDF)
+          - name: file
+            label: PDF
+            type: file
+            required: true
+            options:
+              media: files
+      - name: press_photos
+        label: Press photos
+        description: Your best high-quality photos. Visitors can download them. Use the largest version you have.
+        type: object
+        list:
+          max: 8
+          collapsible:
+            collapsed: true
+            summary: "{caption}"
+        fields:
+          - name: photo
+            label: Photo
+            type: image
+            required: true
+            options:
+              media: photos
+          - name: caption
+            label: Caption
+            type: string
+          - name: credit
+            label: Photographer (for the photo credit)
+            type: string
+      - name: coverage
+        label: Articles and reviews about you (optional)
+        description: Your podcasts and interviews are added automatically.
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: title
+            label: Headline
+            type: string
+            required: true
+          - name: outlet
+            label: Publication
+            type: string
+          - name: date
+            label: Date
+            type: date
+            options:
+              format: yyyy-MM-dd
+          - name: link
+            label: Link
+            type: string
+      - name: contacts
+        label: Press kit contacts (optional)
+        description: Leave empty to use your booking email from Contact and links. Add your agent, manager or publicist here if you have one.
+        type: object
+        list:
+          max: 4
+          collapsible:
+            collapsed: true
+            summary: "{role}"
+        fields:
+          - name: role
+            label: Role
+            type: string
+            description: For example, Booking, Press or Management
+          - name: name
+            label: Name
+            type: string
+          - name: email
+            label: Email
+            type: string
+          - name: phone
+            label: Phone (optional)
+            type: string
+      - name: one_sheet
+        label: One-sheet PDF (optional)
+        type: file
+        options:
+          media: files
+        description: If you have a one-page PDF about you.
       - name: photos_link
-        label: Link to press photos (optional)
+        label: Link to more press photos (optional)
         type: string
 
   - name: songlist
