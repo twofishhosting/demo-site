@@ -9,6 +9,7 @@
 const fs = require("fs");
 const path = require("path");
 const kit = require("./kit/kit.js");
+const epkKit = require("./kit/epk.js");
 
 const read = (f, fallback) => { try { return JSON.parse(fs.readFileSync(path.join(__dirname, "content", f), "utf8")); } catch (e) { if (fallback !== undefined) return fallback; throw new Error("Could not read content/" + f + ": " + e.message); } };
 const P = read("profile.json");
@@ -89,6 +90,26 @@ const pick = (o) => Object.fromEntries(Object.entries(o).filter(([, v]) => has(v
 const streams = pick({ Spotify: links.spotify, "Apple Music": links.apple_music, "YouTube Music": links.youtube_music, Bandcamp: links.bandcamp });
 const social = pick({ Instagram: links.instagram, Facebook: links.facebook, YouTube: links.youtube, TikTok: links.tiktok, Spotify: links.spotify });
 
+/* press kit page (/epk/): the design comes from the template, or "epk" in content/layout.json ("none" turns it off) */
+const epkDesign = (() => { const v = String(L.epk || "onesheet").trim().toLowerCase(); return v === "none" || v === "off" ? "" : v; })();
+if (epkDesign && !epkKit.designs.some((x) => x.id === epkDesign)) throw new Error('content/layout.json asks for the press kit design "' + L.epk + '". Use one of: ' + epkKit.designs.map((x) => x.id).join(", ") + ', or "none".');
+const objs = (v) => (Array.isArray(v) ? v : []);
+const monthYear = new Intl.DateTimeFormat("en-US", { timeZone: tz, month: "long", year: "numeric" }).format(new Date());
+const epkData = {
+  isGroup: !!press.is_group, genre: clean(press.genre) || "", act: clean(press.lineup_type) || "", updated: monthYear,
+  shortBio: clean(press.short_bio) || "",
+  facts: objs(press.facts).filter((f) => has(f.number) && has(f.label)).map((f) => ({ n: String(f.number).trim(), l: clean(f.label) })),
+  highlights: objs(press.highlights).filter((h) => has(h.text)).map((h) => ({ year: String(h.year || "").trim(), text: clean(h.text) })),
+  lineup: clean(press.lineup) || "", setLength: clean(press.set_length) || "", techNote: clean(press.booking_note) || "",
+  tech: objs(press.booking_files).filter((f) => has(f.label) && has(f.file)).map((f) => ({ label: clean(f.label), url: clean(f.file) })),
+  photos: objs(press.press_photos).filter((p) => has(p.photo)).map((p) => ({ src: clean(p.photo), caption: clean(p.caption) || "", credit: clean(p.credit) || "" })),
+  coverage: objs(press.coverage).filter((c) => has(c.title)).map((c) => ({ title: clean(c.title), outlet: clean(c.outlet) || "", date: clean(c.date) || "", url: clean(c.link) || "" }))
+    .concat(ints.map((i) => ({ title: clean(i.title), outlet: clean(i.show) || "", date: clean(i.date) || "", url: clean(i.link) || (youtubeId(i.youtube_link) ? "https://www.youtube.com/watch?v=" + youtubeId(i.youtube_link) : "") })))
+    .sort((a, b) => String(b.date).localeCompare(String(a.date))),
+  contacts: objs(press.contacts).filter((c) => has(c.email) || has(c.phone)).map((c) => ({ role: clean(c.role) || "Contact", name: clean(c.name) || "", email: clean(c.email) || "", phone: clean(c.phone) || "" })),
+  onePager: clean(press.one_sheet) || "", site: "/"
+};
+
 const recipe = {
   style: L.style, domain: L.domain, genre: L.genre,
   name: clean(P.name), headline: clean(P.headline), intro: clean(P.intro) || "", city: clean(P.hometown) || "",
@@ -117,7 +138,7 @@ const recipe = {
   merch: merch.filter((m) => has(m.name) && has(m.link)).map((m) => ({ name: clean(m.name), price: clean(m.price) || "", desc: clean(m.description) || "", url: clean(m.link), photo: m.photo || P.portrait_photo })),
   resources: resources.filter((r) => has(r.song)).map((r) => ({ song: clean(r.song), key: clean(r.key) || "", tempo: String(r.tempo || ""), ccli: clean(r.ccli) || "", chart: clean(r.chord_chart) || "", lead: clean(r.lead_sheet) || "",
     chartLabel: clean(r.chart_label) || "", video: clean(r.video_link) || "", videoLabel: clean(r.video_label) || "" })),
-  contact: { booking: clean(links.booking_email) || "", email: clean(links.email) || "", presskit: clean(links.press_kit) || "", newsletterAction: clean(L.newsletter_form_action) || "", prayerAction: clean(L.prayer_form_action) || "",
+  contact: { booking: clean(links.booking_email) || "", email: clean(links.email) || "", presskit: clean(links.press_kit) || (epkDesign ? "/epk/" : ""), newsletterAction: clean(L.newsletter_form_action) || "", prayerAction: clean(L.prayer_form_action) || "",
     bookingNote: clean(booking.note) || "", packagesNote: clean(booking.packages_note) || "" }
 };
 if (!recipe.story.paragraphs.length) recipe.story.paragraphs = [""];
@@ -137,10 +158,14 @@ const out = path.join(__dirname, "public");
 fs.rmSync(out, { recursive: true, force: true });
 fs.mkdirSync(out, { recursive: true });
 fs.writeFileSync(path.join(out, "index.html"), kit.assemble(recipe));
+if (epkDesign) {
+  fs.mkdirSync(path.join(out, "epk"), { recursive: true });
+  fs.writeFileSync(path.join(out, "epk", "index.html"), epkKit.render(Object.assign({}, recipe, { genre: undefined, epk: epkData }), epkDesign));
+}
 fs.cpSync(path.join(__dirname, "media"), path.join(out, "media"), { recursive: true, filter: (src) => !src.endsWith(".gitkeep") });
 if (fs.existsSync(path.join(__dirname, "static"))) fs.cpSync(path.join(__dirname, "static"), out, { recursive: true }); // favicons etc.
 const site = "https://" + String(L.domain).replace(/^https?:\/\//, "").replace(/\/.*$/, "") + "/";
 fs.writeFileSync(path.join(out, "robots.txt"), "User-agent: *\nAllow: /\nSitemap: " + site + "sitemap.xml\n");
-fs.writeFileSync(path.join(out, "sitemap.xml"), '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>' + site + "</loc><lastmod>" + today + "</lastmod></url></urlset>\n");
+fs.writeFileSync(path.join(out, "sitemap.xml"), '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>' + site + "</loc><lastmod>" + today + "</lastmod></url>" + (epkDesign ? "<url><loc>" + site + "epk/</loc><lastmod>" + today + "</lastmod></url>" : "") + "</urlset>\n");
 
-console.log("Built " + P.name + ": " + recipe.sections.length + " sections, " + events.length + " upcoming dates (" + (dates.length - events.length) + " past or incomplete hidden), " + vids.length + " videos, " + ints.length + " interviews." + (dropped.length ? " Hidden because empty: " + dropped.join(", ") + "." : ""));
+console.log("Built " + P.name + ": " + recipe.sections.length + " sections, " + events.length + " upcoming dates (" + (dates.length - events.length) + " past or incomplete hidden), " + vids.length + " videos, " + ints.length + " interviews." + (dropped.length ? " Hidden because empty: " + dropped.join(", ") + "." : "") + (epkDesign ? " Press kit: /epk/ (" + epkDesign + ")." : " No press kit page."));

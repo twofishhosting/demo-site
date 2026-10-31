@@ -63,4 +63,5 @@ You do this once per customer, and it takes about 20 minutes. Steps 1 to 3 happe
 - **File size.** A single file can be at most 25 MB, which is fine for photos and MP3 previews. Full albums for sale live on Bandcamp, not here.
 - **Undo is built in.** GitHub keeps every version. If a musician deletes something by mistake, you can restore it from the file's **History**.
 - **Switching templates.** Change the `template` word in `content/layout.json` (step 5). Their content stays.
-- **Design improvements.** To get a kit update onto every customer site, replace `kit/kit.js` in each repository.
+- **Press kit page.** Every site also gets a press kit at `/epk/`, built from the same content plus the **Press kit** item in the editor. Each template picks a press kit design. To use another, add `"epk": "onesheet"` to `content/layout.json` (headliner, broadsheet, onesheet, liner or sanctuary). `"epk": "none"` turns it off.
+- **Design improvements.** To get a kit update onto every customer site, replace `kit/kit.js` and `kit/epk.js` in each repository.

@@ -21,7 +21,7 @@ Welcome! You can change your own dates, videos, interviews, photos and songs any
 | Update emails and social links | **Contact and links** |
 | Your two collections of songs | **Music collections** |
 | What you offer churches and venues | **Booking options** |
-| Press quotes | **Press kit** |
+| Press quotes, short bio, press photos and booking details | **Press kit**. These fill your press kit page at yoursite.com/epk |
 | Song list, packages, devotions, giving or chord charts | The item with that name |
 
 Your menu shows every item, but your site only shows the ones your template uses. Leave the others empty.

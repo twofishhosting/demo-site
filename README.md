@@ -12,6 +12,8 @@ This folder is one musician's whole website, which starts out as the "Grace Mill
 
 `content/layout.json` names the template (for example `frontporch`) and holds the domain and time zone. The musician's editor doesn't show this file, so only Two Fish changes the look. The `templates` folder holds the design of each of the 21 templates on twofishhosting.com/design.html. Don't edit those files.
 
+The site also has a press kit page at `/epk/`, built from the same content and the **Press kit** item in the editor. Each template picks one of five press kit designs; `"epk": "<design>"` in `content/layout.json` changes it, and `"epk": "none"` turns it off.
+
 ## How it works
 
 1. **The musician saves** a change in the editor, for example a new date.

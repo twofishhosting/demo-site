@@ -1,5 +1,38 @@
 {
-  "quotes": [],
-  "fans_of": "",
-  "photos_link": ""
+  "quotes": [
+    {
+      "quote": "A voice that sounds like it has lived every word it sings.",
+      "source": "Publication Name"
+    },
+    {
+      "quote": "Grace led our church in worship with such warmth. People are still singing her songs.",
+      "source": "Pastor, Church Name"
+    }
+  ],
+  "fans_of": "Ellie Holcomb, Sara Groves, Andrew Peterson",
+  "photos_link": "",
+  "short_bio": "Grace Miller is a Christian singer-songwriter from Jacksonville, Florida, who writes songs of faith, family and the long roads in between. Her new album, Quiet Harbor, is out now.",
+  "genre": "Christian singer-songwriter",
+  "lineup_type": "Solo or trio",
+  "is_group": false,
+  "facts": [
+    { "number": "10", "label": "years leading worship" },
+    { "number": "6", "label": "songs on Quiet Harbor" },
+    { "number": "40+", "label": "churches visited" }
+  ],
+  "highlights": [
+    { "year": "2026", "text": "Quiet Harbor released" },
+    { "year": "2025", "text": "Worship nights at churches across the Southeast" }
+  ],
+  "lineup": "Solo with guitar, or a trio with piano and cello",
+  "set_length": "A Sunday service, a 60-minute concert or a worship night",
+  "booking_note": "",
+  "booking_files": [],
+  "press_photos": [
+    { "photo": "/media/photos/portrait.jpg", "caption": "Portrait", "credit": "Photographer Name" },
+    { "photo": "/media/photos/about.jpg", "caption": "With guitar", "credit": "Photographer Name" }
+  ],
+  "coverage": [],
+  "contacts": [],
+  "one_sheet": ""
 }
