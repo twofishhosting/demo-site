@@ -111,7 +111,7 @@ const epkData = {
 };
 
 const recipe = {
-  style: L.style, domain: L.domain, genre: L.genre,
+  style: L.style, theme: L.theme || undefined, domain: L.domain, genre: L.genre,
   name: clean(P.name), headline: clean(P.headline), intro: clean(P.intro) || "", city: clean(P.hometown) || "",
   shareImage: P.main_photo || "",
   verse: { text: clean(P.verse) || "", ref: clean(P.verse_ref) || "" },
@@ -142,6 +142,11 @@ const recipe = {
     bookingNote: clean(booking.note) || "", packagesNote: clean(booking.packages_note) || "" }
 };
 if (!recipe.story.paragraphs.length) recipe.story.paragraphs = [""];
+/* a musician's own colors or fonts ("theme" in content/layout.json) must still be easy to read */
+if (L.theme && kit.checkTheme) {
+  const bad = kit.checkTheme(L.style, L.theme);
+  if (bad.length) throw new Error("The colors in content/layout.json are too hard to read: " + bad.map((b) => b.label + " (" + b.ratio + ":1, needs 4.5:1)").join("; ") + ". Pick darker text or a lighter background.");
+}
 
 /* drop a section when its content is empty, so the page never shows a blank block (dates stay: they show "check back soon") */
 const usesSetsDesign = (L.sections || []).some((s) => s.k === "music" && ["sets", "records", "playlist"].includes(s.v));

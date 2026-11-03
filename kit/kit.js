@@ -1410,6 +1410,37 @@ window.addEventListener("message",function(e){if(e.data&&e.data.tf==="show"){var
   }
 
   /* ======================================================================
+     7b. THEME — a musician's own colors, fonts and corners on top of a template
+     recipe.theme = { colors: "<style id>", fonts: "<style id>", tokens: { bg, alt, ink, soft, accent, fill, on, line, card, deco }, radius: "sharp"|"soft"|"round" }
+     Every color must be #rrggbb, and the result must pass the contrast checks (checkTheme) or build.js refuses it.
+     ====================================================================== */
+  const COLOR_KEYS = ["bg", "alt", "ink", "soft", "accent", "fill", "on", "line", "card", "deco"];
+  const FONT_KEYS = ["display", "body", "dw", "h-case", "h-scale", "h-track"];
+  const RADIUS = { sharp: "3px", soft: "12px", round: "24px" };
+  const HEX = /^#[0-9a-fA-F]{6}$/;
+  function lum(hex) { const c = [1, 3, 5].map((i) => parseInt(hex.substr(i, 2), 16) / 255).map((v) => (v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4))); return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]; }
+  function contrast(a, b) { const x = lum(a), y = lum(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); }
+  function themed(styleId, theme) {
+    const base = STYLES[styleId] || STYLES.sanctuary;
+    if (!theme || typeof theme !== "object") return base;
+    const st = { name: base.name, note: base.note, group: base.group, fonts: base.fonts, css: base.css || "", t: Object.assign({}, base.t) };
+    let recolored = false;
+    if (theme.colors && STYLES[theme.colors] && theme.colors !== styleId) { COLOR_KEYS.forEach((k) => { st.t[k] = STYLES[theme.colors].t[k]; }); recolored = true; }
+    if (theme.fonts && STYLES[theme.fonts]) { const f = STYLES[theme.fonts]; st.fonts = f.fonts; FONT_KEYS.forEach((k) => { if (f.t[k] !== undefined) st.t[k] = f.t[k]; }); }
+    if (theme.tokens && typeof theme.tokens === "object") COLOR_KEYS.forEach((k) => { if (HEX.test(String(theme.tokens[k] || ""))) { st.t[k] = theme.tokens[k]; recolored = true; } });
+    if (RADIUS[theme.radius]) st.t.radius = RADIUS[theme.radius];
+    // the template's own decoration may use its original colors; drop those touches when the colors change
+    if (recolored) st.css = st.css.replace(/[a-z-]+:[^;{}]*(#[0-9a-fA-F]{3,8}\b|rgba?\()[^;{}]*;?/g, "");
+    return st;
+  }
+  function checkTheme(styleId, theme) {
+    const t = themed(styleId, theme).t, out = [];
+    const need = [["ink", "bg", "Text on the background"], ["soft", "bg", "Small text on the background"], ["ink", "alt", "Text on shaded sections"], ["ink", "card", "Text on cards"], ["on", "fill", "Button text"], ["accent", "bg", "Links and labels"]];
+    need.forEach(([a, b, label]) => { if (!HEX.test(t[a]) || !HEX.test(t[b])) return; const r = contrast(t[a], t[b]); if (r < 4.5) out.push({ pair: a + "/" + b, label, ratio: Math.round(r * 100) / 100 }); });
+    return out;
+  }
+
+  /* ======================================================================
      8. ASSEMBLE — recipe in, complete page out
      ====================================================================== */
   function normalize(recipe) {
@@ -1438,7 +1469,7 @@ window.addEventListener("message",function(e){if(e.data&&e.data.tf==="show"){var
       d.sets = (d.sets || []).map((st) => Object.assign({}, st, { cover: "" }));
       d.merch = d.merch.map((m) => Object.assign({}, m, { photo: PH("PRODUCT") }));
     }
-    const st = STYLES[d.style];
+    const st = themed(d.style, d.theme);
     const base = "https://" + String(d.domain).replace(/^https?:\/\//, "").replace(/\/.*$/, "") + "/";
     const tokens = ":root{" + Object.keys(st.t).map((k) => "--" + k + ":" + st.t[k]).join(";") + "}";
     const cssKeys = [], jsKeys = ["nav"];
@@ -1487,8 +1518,9 @@ window.addEventListener("message",function(e){if(e.data&&e.data.tf==="show"){var
     return out;
   }
   return {
-    version: "1.5.0",
+    version: "1.6.0",
     styles: Object.keys(STYLES).map((id) => ({ id, name: STYLES[id].name, note: STYLES[id].note, group: STYLES[id].group || "christian", swatch: [STYLES[id].t.bg, STYLES[id].t.alt, STYLES[id].t.fill, STYLES[id].t.deco] })),
-    catalog, assemble, sample: SAMPLE
+    catalog, assemble, sample: SAMPLE, themed, checkTheme, contrast,
+    fonts: Object.keys(STYLES).map((id) => ({ id, display: STYLES[id].t.display.split(",")[0].replace(/"/g, ""), body: STYLES[id].t.body.split(",")[0].replace(/"/g, ""), css: STYLES[id].fonts }))
   };
 });
